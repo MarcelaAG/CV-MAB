@@ -1,0 +1,424 @@
+@keyframes slideMe{
+    0%{
+        transform: skewX(53deg) translateX(-500px);
+
+    }
+    100% transform: skew(0deg);
+}
+
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+/* Fonts */
+
+/* custom property set-up */
+:root{
+    --ff-primary: Georgia, arial;
+    --ff-secondary: Georgia, monospace;
+
+    --fw-reg: 300;
+    --fw-bold: 900;
+
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: rgb(5, 233, 55);
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25), 0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+/* other styles LOGOS*/
+#descodeuses_logo{
+    display: inline-block;
+    max-width: 30%;
+    max-height: 60%;
+}
+.pdf_logo_img{
+    display: inline-block;
+    max-width: 60px;
+    max-height: 60%;
+    margin-top: 10px;
+}
+
+
+/* Media query to adapt font sizes */
+@media (min-width: 800px){
+    :root{
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem; 
+        --fs-body: 1.125rem;
+}
+    }
+/* General styles */
+html{
+    scroll-behavior: smooth; /* adds smooth scrolling without JS */
+}
+body{
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+section{
+    padding: 5em 2em;
+}
+img{
+    display: block;
+    max-width: 100%;
+}
+
+:focus{ 
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px; /*highlights where the reader is focused on*/
+}
+
+
+/*Button styles*/
+.btn{
+    display: inline-block;
+    padding: .5em 2.5em;
+    background: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out; /* makes button bigger and smaller when hover*/
+}
+.btn:hover{
+    transform: scale(1.1);/* makes button bigger and smaller when hover*/
+}
+
+/* Typography */
+h1, h2, h3{
+    line-height: 1;
+    margin: 0;
+}
+h1{ font-size: var(--fs-h1);}
+h2{ font-size: var(--fs-h2);}
+h3{font-size: var(--fs-h3);}
+
+.section__title{
+    margin-bottom: .25em;
+}
+.section__subtitle--intro{
+    font-weight: var(--fw-reg);
+}
+.section__subtitle--intro strong{
+    display: block;
+}
+.section__subtitle{
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+.section__subtitle--intro,
+.section__subtitle--about{
+    background-color: var(--clr-accent);
+    padding: .25em 1em;
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+}
+.section__subtitle--work{
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    margin-bottom: 2em;
+}
+
+/* Header */
+
+header{
+    display: flex; /*to put logo on left and the button to the right */
+    justify-content: space-between; /* this will spread them out properly */
+    padding: 1em; /* so nothing is touching */
+
+}
+.nav_btn{
+    max-width: 100px;
+    max-height: 50px;
+}
+.logo, .slideme{
+    max-width: 500px;
+    animation: slideMe .7s ease-in;
+}
+.nav{
+    position: fixed; /* pulls out of the flow and send button to where it should be */
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    top: 0; /* makes it so that it fills up entire screen */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100; /* to pull it in front of everthing else */
+
+    transform: translateX(100%); /* half of viewport */
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1); /* similar to ease in out */
+}
+.nav__list{
+    list-style: none;
+    display: flex;
+    height: 100%;    
+    flex-direction: column;
+    justify-content: space-evenly; /* spaces them out evenly vertically */
+    align-items: center;
+    margin: 0; /* fixes weird alignment issues */
+    padding: 0; /* fixes weird alignment issues */
+}
+.nav__link{
+    color:inherit;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h3);
+    text-decoration: none;
+}
+.nav__link:hover{
+    color: var(--clr-accent);
+}
+
+.nav-toggle{
+    padding: .5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer; /* to have hand pointer when user goes on top of it */
+    right: 1em;
+    top: 1em;
+    z-index: 1000; /* to keep the button available at all times! */
+}
+/* javascript for toggle button */
+.nav-open .nav{
+    transform: translateX(0);
+}
+.nav-open .nav-toggle{
+    position: fixed;
+}
+.nav-open .hamburger{
+    transform: rotate(.625turn); /* can also be done in degrees */
+}
+.nav-open .hamburger::before{
+    transform: rotate(90deg) translateX(-6px);
+}
+.nav-open .hamburger::after{
+    opacity: 0;
+}
+/*styles for hamburger */
+.hamburger{
+     display: block; /* because the span is inline and we don't want issues!! */
+     position: relative;
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after{
+    background: var(--clr-accent);
+    width: 2em;
+    height: 3px;
+    border-radius: 2em;
+    transition: transform 250ms ease-in-out;
+}
+.hamburger::before,
+.hamburger::after{
+    content: ''; /*must give a content(even if it's empty) to pseudo elements or they will not work! */
+    position: absolute; /*also required for psuedos */
+    left: 0;
+    right: 0; /* to avoid having a husge bar going across the screen */
+}
+.hamburger::before { top: 6px} /* because the height is 3px */
+.hamburger::after { bottom: 6px;}
+
+/* Intro section */
+.intro{
+    position: relative;
+}
+.intro__image{
+    box-shadow: var(--bs);
+}
+.section__subtitle--intro{
+    display:inline-block;
+}
+@media (min-width: 600px){
+    .intro{
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-areas: "img title" "img subtitle";
+        grid-template-columns: min-content max-content;
+    }
+    .intro__image{
+        grid-area: img;
+        min-width: 250px;
+        position: relative;
+        z-index: 2; /* puts line behind photo */
+    }
+    .section__subtitle--intro{
+        align-self: start;
+        grid-template-columns: -1 / 1;
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% + 1.5em); /*pink line behind intro pic*/
+    }
+}
+/* Formation section */
+.ma-formation{
+    background-color: var(--clr-dark);
+    background-image: url(https://images.unsplash.com/photo-1517148815978-75f6acaaf32c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+    background-size: cover;
+    background-blend-mode: multiply; /*makes image less bright*/
+    color: var(--clr-light);
+    text-align: center;
+}
+.section__title--formation{
+    color: var(--clr-accent);
+    position: relative;
+}
+.section__title--formation::after{
+    content: '';
+    display: block;
+    width: 2em;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    background: var(--clr-light)
+}
+.formation{
+    margin-bottom: 4em;
+}
+.la_formation, .stage{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media (min-width: 800px){
+    .formation{
+        display: flex;
+        max-width: 1000px; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .la_formation + .stage{ /*spacing between coloumns*/
+        margin-left: 2em;
+    }
+}
+.about-me{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.about-me__img{
+    box-shadow: var(--bs);
+}
+@media (min_width: 600px) /*break point at 600px becomes two columns*/
+{
+    .about-me{
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: "title img"
+                            "subtitle img"
+                             "text img";
+        grid-column-gap: 2em;                     
+    }
+.section__title--about{
+    grid-area: title;
+}
+.section__subtitle--about{ 
+    grid-column: 1 / -1;
+    grid-row: 2;
+    position: relative;
+    left: -2em;
+    width: calc(100% + 2em);/*pink line behind photo of me with sunglasses, why doesn't it work,!*/
+    padding-right: calc(200px + 4em);
+    padding-left: 1em;
+}
+    .about-me__img{
+        grid-area: img;
+        position: relative;
+        z-index: 2; /*puts line behind photo but of course it's not working!*/
+    }
+
+}
+/* My work section*/
+.my-work{
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+}
+.portfolio{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* have to use minmax with autofit, it means each grid has min of 300 but if there's room it can get bigger */
+   /* max-width:
+    margin: 0 auto; if I want to prevent from it getting to long across the screen */
+}
+.portfolio__item{
+    background: var(--clr-accent);
+    overflow: hidden; /* prevents it from growing out and looking weird, it grows in place! */
+}
+.portfolio__img{
+    transition: 
+    transform 750ms cubic-bezier(.5, 0, .5, 1), /* similar to an ease in out */
+    opacity 250ms linear;
+}
+.portfolio__img:hover,
+.portfolio__item:focus .portfolio__img /*shows pink outline when image is in focus */{
+    transform: scale(1.2);
+    opacity: .75;
+}
+/* Footer section */
+.footer{
+    background: #111;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 2.5em 0;
+    font-size: var(--fs-h3);
+}
+.footer a {
+    color: inherit; /*inherits accent color*/
+    text-decoration: none; /*turn off as defalut */
+}
+.footer__link{
+    font-weight: var(--fw-bold);
+}
+
+
+.footer__link:hover,
+.social-list__link:hover{
+    opacity: .7; /* subtle hover */
+}
+.footer__link:hover{
+    text-decoration: underline;
+}
+
+.social-list{
+    list-style: none; /* no bullets */
+    display: flex; /* puts them all next to eachother */
+    justify-content: center; /* to put them in the middle */
+    margin: 2em 0 0; /* to space them out a bit */
+    padding: 0;
+}
+.social-list__item{
+    margin: 0 .5em;
+}
+.social-list__link{
+    padding: .5em; /* makes it easier to press on if user is using finger */
+}
+/* portfolio item styles*/
+
+.portfolio-item-individual{
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.portfolio-item-individual p{
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
