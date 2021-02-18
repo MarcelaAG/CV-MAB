@@ -1,12 +1,29 @@
+/*@font-face {
+    font-family: 'cooper_hewittmedium';
+    src: url('fonts/cooperhewitt-medium-webfont.woff2') format('woff2'),
+         url('fonts/cooperhewitt-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'cooper_hewittlight';
+    src: url('fonts/cooperhewitt-light-webfont.woff2') format('woff2'),
+         url('cfonts/ooperhewitt-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
 @keyframes slideMe{
     0%{
         transform: skewX(53deg) translateX(-500px);
 
     }
-    100% transform: skew(0deg);
+    100% {transform: skew(0deg);
 }
 
-
+}
 *,
 *::before,
 *::after{
@@ -16,15 +33,15 @@
 
 /* custom property set-up */
 :root{
-    --ff-primary: Georgia, arial;
-    --ff-secondary: Georgia, monospace;
+    --ff-primary: 'Work Sans', sans-serif; 
+    --ff-secondary: 'Crimson Text', serif;
 
     --fw-reg: 300;
     --fw-bold: 900;
 
     --clr-light: #fff;
     --clr-dark: #303030;
-    --clr-accent: rgb(5, 233, 55);
+    --clr-accent: rgb(82, 237, 56);
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -32,13 +49,13 @@
     --fs-body: 1rem;
 
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25), 0.125em 0.125em 0.25em rgba(0,0,0,.15);
-}
+} 
 
 /* other styles LOGOS*/
 #descodeuses_logo{
     display: inline-block;
-    max-width: 30%;
-    max-height: 60%;
+    max-width: 80%;
+    max-height: 80%;
 }
 .pdf_logo_img{
     display: inline-block;
@@ -119,6 +136,10 @@ h3{font-size: var(--fs-h3);}
 }
 .section__subtitle--intro strong{
     display: block;
+    font-weight: var(--fw-bold);
+}
+.strong{
+    color: var(--clr-accent);
 }
 .section__subtitle{
     margin: 0;
@@ -128,7 +149,7 @@ h3{font-size: var(--fs-h3);}
 .section__subtitle--about{
     background-color: var(--clr-accent);
     padding: .25em 1em;
-    font-family: var(--ff-secondary);
+    font-family: var(--ff-primary);
     margin-bottom: 1em;
 }
 .section__subtitle--work{
@@ -256,7 +277,7 @@ header{
     }
     .intro__image{
         grid-area: img;
-        min-width: 250px;
+        min-width: 300px;
         position: relative;
         z-index: 2; /* puts line behind photo */
     }
@@ -267,13 +288,13 @@ header{
         text-align: right;
         position: relative;
         left: -1.5em;
-        width: calc(100% + 1.5em); /*pink line behind intro pic*/
+        width: calc(100% + 1.5em); /*green line behind intro pic*/
     }
 }
 /* Formation section */
 .ma-formation{
     background-color: var(--clr-dark);
-    background-image: url(https://images.unsplash.com/photo-1517148815978-75f6acaaf32c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+    background-image: url(images/computers.jpg);
     background-size: cover;
     background-blend-mode: multiply; /*makes image less bright*/
     color: var(--clr-light);
@@ -297,6 +318,9 @@ header{
 .la_formation, .stage{
     max-width: 500px;
     margin: 0 auto;
+}
+p, ul{
+    font-family: var(--ff-secondary);
 }
 
 @media (min-width: 800px){
@@ -386,6 +410,7 @@ header{
 }
 .footer__link{
     font-weight: var(--fw-bold);
+    font-family: var(--ff-primary);
 }
 
 
