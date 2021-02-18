@@ -1,55 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudfire.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">     
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="style.css">
     <title>CV Marcela Aguilera-Blanc</title>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> 
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" 
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" /> 
+    <!--Fonts I will be using-->
+    <link rel="stylesheet" href="style.css">
+
 </head>
-<body>
+ <body>
     <header>
        <div class="logo">
-         <img src="" alt="picture of Marcela">
+         <img src="Images for CV/logo_mab2.png" alt="logo MAB" class="slideme">
        </div>
+       <div class="nav_btn">
        <button class="nav-toggle" aria-label="toggle navigation">
            <span class="hamburger"></span>
        </button>
+       </div>
        <nav class="nav">
             <ul class="nav__list">
-              <li class="nav__item"><a href="home" class="nav__link"></a>Home</li> 
-              <li class="nav__item"><a href="training" class="nav__link"></a>My Training</li> 
-              <li class="nav__item"><a href="About" class="nav__link"></a>About me</li> 
-              <li class="nav__item"><a href="Work" class="nav__link"></a>My Work</li> 
+              <li class="nav__item"><a href="#home" class="nav__link">Home</a></li> 
+              <li class="nav__item"><a href="#formation" class="nav__link">Formation</a></li> 
+              <li class="nav__item"><a href="#about" class="nav__link">About</a></li> 
+              <li class="nav__item"><a href="#work" class="nav__link">Work</a></li> 
             </ul>
        </nav>
     </header>
 
     <!-- Introduction -->
    <section class="intro" id="home">
-       <h1 class="section__title section title--intro">
-           Hi there, my name is <strong>Marcela Aguilera-Blanc</strong>
+       <h1 class="section__title section__title--intro">
+           Hello! Je suis <strong>Marcela.</strong>
        </h1>
-       <p class="section__subtitle">front-end jr. dev</p>
-       <img src="" alt="picture of Marcela">
+       <p class="section__subtitle section__subtitle--intro">front-end jr. dev</p>
+       <img src="Images for CV/marcela_intro.jpg" alt="marcela_at_montpernasse" class="intro__image">
    </section>
-   <!-- My Training -->
-   <section class="my-training" id="training">
-        <h2 class="section__title section--title training">Where I trained</h2>
-        <div class="training">
-            <div class="training">
-                <h3> Les DesCodeuses</h3>
-                <p> </p>
-            </div> <!-- /training-->
+   <!-- Formation -->
+   <section class="ma-formation" id="formation">
+        <h2 class="section__title section__title--formation">Where I trained</h2>
+        <div class="formation">
+            <div class="la_formation">
+                <h3> Les
+                  <a href="https://www.descodeuses.org/"><img src="https://www.descodeuses.org/img/logo-descodeuses.701b1e3c.png" id="descodeuses_logo" alt="DesCodeuses_logo"></a>
+                </h3>
+                <p>Formation qui m'a permis de développer des compétences front-end et back-end via des phases d'exercices en autonomie et des projets, fictifs et réels. 
+                   Ces pratiques quotidiennes m'ont donné la possibilité de me projeter dans mon futur métier !
+                <h3>Durée</h3>
+                <p>5,5 mois en centre de formation
+                     6 mois en entreprise, à travers un stage</p>
+                <h3>Ce que j'appris</h3>
+                <ul>
+                  <li>Front end : HTML5, CSS3, Javascript </li>
+                  <li>Frameworks front end : JQuery, React</li>
+                  <li>Back end : SQL, PHP, Apache</li>
+                  <li>Environnement GIT</li>
+                </ul>
+            </div> <!-- /formation-->
 
-            <div class="training">
-              <h3>Design + Development</h3>
-              <p></p>
-            </div> <!-- /training-->
-        </div> <!-- /training -->
+            <div class="stage">
+              <h3> Stage Design + Developpment</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, aut exercitationem quasi, voluptatem inventore quibusdam eius dolor voluptas culpa natus earum quos quod, 
+                corrupti incidunt delectus! Debitis necessitatibus obcaecati recusandae</p>
+            </div> <!-- /formation-->
+        </div> <!-- /formation -->
 
         <a href="#work" class="btn">My Work</a>
     </section>
@@ -57,29 +77,81 @@
     <!-- About Me -->
     <section class="about-me" id="about">
       <h2 class="section__title section__title--about">Who am I</h2>
-      <p class="section__subtitle section__subtitle"></p>
+      <p class="section__subtitle section__subtitle--about">Designer & developer based out of Paris</p>
+      <img src="Images for CV/marcela_who_i_am.jpg" alt="marcela with sunglasses" class="about-me__img">
 
       <div class="about-me__body">
-            <p></p>
+            <p>Je suis un Développeuse Front-End et webdesinger vivant à Paris. Après 10 ans dans l'enseignement des langues, je me suis réorientée vers le développement web afin de pouvoir créer des choses extraordinaires.
+              J'ai hâte de travailler ensemble.</p>
             <p></p>
       </div>
-      <img src="" alt="#">
+      <div class="about-me__body--experience">
+        <p class="section__subtitle section__subtitle--about">Mon métier avant le web</p>
+          <p>J'ai commencé à enseigner en tant que professeur d'anglais bénévole pour les immigrés en France. J'ai beaucoup aimé et j'ai décidé de m'investir davantage dans l'enseignement.</p>
+          <p>Pendant dix ans, j'ai enseigné aux adultes, aux enfants (y compris des bébés !) en utilisant plusieurs méthodes de formation dans différents environnements d'enseignement.</p>
+          <p>Mon objectif était toujours basé sur l'établissement de relations et de liens personnels avec chaque élève: j'ai adoré en savoir plus sur leur vie, leur travail et leurs défis et besoins uniques.</p>
+      </div>
+      <div class="about-me__body--experience">
+        <p class="section__subtitle section__subtitle--about">D'où je viens</p>
+         <p>Je suis née au Honduras en amérique centrale, j'ai grandi à Toronto et maintenant j'habite dans la ville lumière ! 
+            Je présume que cela a fait de moi une personne adaptable avec la soif de voyager et de découvrir de nouvelles cultures. 
+            J'adore les langues: les apprendre, les enseigner, les intégrer à ma vie. 
+            J'ai récemment découvert le monde incroyable du Web Design et je me suis donné pour mission de le CONQUÉRIR. Let's do this!</p>
+            </div>
+
+      
    </section>
 
-<!-- My Work -->
-<section class="my-work" id="work">
-<h2 class="section__titles">My Work</h2>
-<p class="section__subtitle"></p>
-<div class="portfolio">
-<a href="#" class="portfolio__item">
-  <img src="" alt="#">
-</a>
+    <!-- My Work -->
+    <section class="my-work" id="work">
+         <h2 class="section__title">My Work</h2>
+         <p class="section__subtitle" class="section__subtitle--work">A preview of what I do</p>
+        
+        <div class="portfolio">
+           <!--Portfolio item 01-->
+            <a href="Images for CV/portfolio_breathe.jpg" class="portfolio__item">
+                <img src="Images for CV/portfolio_breathe.jpg" alt="Breathe" class="portfolio__img">
+            </a>
+          <!--Portfolio item 02-->
+            <a href="Images for CV/portfolio_stormtroopers.jpg" class="portfolio__item">
+              <img src="Images for CV/portfolio_stormtroopers.jpg" alt="stormtroopers" class="portfolio__img">
+            </a>
+          <!--Portfolio item 03-->
+            <a href="Images for CV/portfolio_sardines.jpg" class="portfolio__item">
+            <img src="Images for CV/portfolio_sardines.jpg" alt="sardines" class="portfolio__img">
+            </a>
+      </div>
+    </section>
+    <!--Footer-->
+    <footer class="footer">
+      <a href="mailto:marcela.aguilerablanc@gmail.com" class="footer__link">hello@marcela</a>
+      <p><a href="pdf_CV/MAB CV NOVEMBRE 2020.pdf" download="pdf_CV/MAB CV NOVEMBRE 2020.pdf" class="footer__link">Mon CV
+        <i class="far fa-file-pdf"></i>
+      </a></p>
+      <ul class="social-list">
+        <li class="social-list__item">
+           <a class="social-list__link" href="https://www.facebook.com/">
+             <i class="fab fa-facebook-square"></i>
+           </a>
+        </li>
+        <li class="social-list__item">
+           <a class="social-list__link" href="https://twitter.com/">
+             <i class="fab fa-twitter-square"></i>
+           </a>
+        </li>
+        <li class="social-list__item">
+           <a class="social-list__link" href="https://www.linkedin.com/">
+             <i class="fab fa-linkedin"></i>
+           </a>
+        </li>
+        <li class="social-list__item">
+           <a class="social-list__link" href="https://github.com/MarcelaAG">
+             <i class="fab fa-github-square"></i>
+           </a>
+        </li>
+       </ul>
+    </footer>
 
-</div>
-
-
-</section>
-
-
-</body>
+<script src="index.js"></script>
+ </body>
 </html>
