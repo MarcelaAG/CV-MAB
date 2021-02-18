@@ -50,21 +50,6 @@
 
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25), 0.125em 0.125em 0.25em rgba(0,0,0,.15);
 } 
-
-/* other styles LOGOS*/
-#descodeuses_logo{
-    display: inline-block;
-    max-width: 80%;
-    max-height: 80%;
-}
-.pdf_logo_img{
-    display: inline-block;
-    max-width: 60px;
-    max-height: 60%;
-    margin-top: 10px;
-}
-
-
 /* Media query to adapt font sizes */
 @media (min-width: 800px){
     :root{
@@ -86,7 +71,6 @@ body{
     font-size: var(--fs-body);
     line-height: 1.6;
 }
-
 section{
     padding: 5em 2em;
 }
@@ -99,8 +83,19 @@ img{
     outline: 3px solid var(--clr-accent);
     outline-offset: 3px; /*highlights where the reader is focused on*/
 }
-
-
+/* other styles LOGOS*/
+#descodeuses_logo{
+    display: inline-block;
+    max-width: 80%;
+    max-height: 80%;
+}
+/*.pdf_logo_img{
+    display: inline-block;
+    max-width: 60px;
+    max-height: 60%;
+    margin-top: 10px;
+}
+*/
 /*Button styles*/
 .btn{
     display: inline-block;
@@ -156,6 +151,7 @@ h3{font-size: var(--fs-h3);}
     color: var(--clr-accent);
     font-weight: var(--fw-bold);
     margin-bottom: 2em;
+    font-family: var(--ff-primary);
 }
 
 /* Header */
@@ -172,7 +168,7 @@ header{
 }
 .logo, .slideme{
     max-width: 500px;
-    animation: slideMe .7s ease-in;
+    animation: slideMe .8s ease-in;
 }
 .nav{
     position: fixed; /* pulls out of the flow and send button to where it should be */
