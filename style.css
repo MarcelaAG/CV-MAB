@@ -251,7 +251,7 @@ header{
     content: ''; /*must give a content(even if it's empty) to pseudo elements or they will not work! */
     position: absolute; /*also required for psuedos */
     left: 0;
-    right: 0; /* to avoid having a husge bar going across the screen */
+    right: 0; /* to avoid having a huge bar going across the screen */
 }
 .hamburger::before { top: 6px} /* because the height is 3px */
 .hamburger::after { bottom: 6px;}
