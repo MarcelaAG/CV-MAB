@@ -102,13 +102,13 @@ img{
     padding: .5em 2.5em;
     background: var(--clr-accent);
     color: var(--clr-dark);
-    text-decoration: none;
+    text-decoration: none; /* don't want underline on text */
     cursor: pointer;
     font-size: .8em;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: var(--fw-bold);
-    transition: transform 200ms ease-in-out; /* makes button bigger and smaller when hover*/
+    transition: transform 200ms ease-in-out; /* slow transition start and end*/
 }
 .btn:hover{
     transform: scale(1.1);/* makes button bigger and smaller when hover*/
@@ -157,7 +157,7 @@ h3{font-size: var(--fs-h3);}
 /* Header */
 
 header{
-    display: flex; /*to put logo on left and the button to the right */
+    display: flex; /* to put logo on left and the button to the right */
     justify-content: space-between; /* this will spread them out properly */
     padding: 1em; /* so nothing is touching */
 
@@ -171,17 +171,17 @@ header{
     animation: slideMe .8s ease-in;
 }
 .nav{
-    position: fixed; /* pulls out of the flow and send button to where it should be */
+    position: fixed; /* pulls it out of the flow and sends button to where it should be on the right */
     background: var(--clr-dark);
     color: var(--clr-light);
     top: 0; /* makes it so that it fills up entire screen */
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 100; /* to pull it in front of everthing else */
+    bottom: 0;/* makes it so that it fills up entire screen */
+    left: 0;/* makes it so that it fills up entire screen */
+    right: 0;/* makes it so that it fills up entire screen */
+    z-index: 100; /* pulls it in front of everthing else */
 
-    transform: translateX(100%); /* half of viewport */
-    transition: transform 250ms cubic-bezier(.5, 0, .5, 1); /* similar to ease in out */
+    transform: translateX(100%); /* how its seen in the viewport 100% makes it disappear from the page */
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1); /* curve,easing function similar to ease in out */
 }
 .nav__list{
     list-style: none;
@@ -196,8 +196,9 @@ header{
 .nav__link{
     color:inherit;
     font-weight: var(--fw-bold);
-    font-size: var(--fs-h3);
-    text-decoration: none;
+    font-size: var(--fs-h2);
+    text-decoration: none; /* no underline on links */
+    font-family: var(--ff-primary);
 }
 .nav__link:hover{
     color: var(--clr-accent);
@@ -217,16 +218,16 @@ header{
     transform: translateX(0);
 }
 .nav-open .nav-toggle{
-    position: fixed;
+    position: fixed; /* so it won't move when you scroll down */
 }
 .nav-open .hamburger{
     transform: rotate(.625turn); /* can also be done in degrees */
 }
 .nav-open .hamburger::before{
-    transform: rotate(90deg) translateX(-6px);
+    transform: rotate(90deg) translateX(-6px); /* turns it into an x. The translate positions it where it should be*/
 }
 .nav-open .hamburger::after{
-    opacity: 0;
+    opacity: 0; /* so it disapperas */
 }
 /*styles for hamburger */
 .hamburger{
@@ -240,7 +241,7 @@ header{
     width: 2em;
     height: 3px;
     border-radius: 2em;
-    transition: transform 250ms ease-in-out;
+    transition: transform 250ms ease-in-out; 
 }
 .hamburger::before,
 .hamburger::after{
@@ -343,7 +344,7 @@ p, ul{
         display: grid;
         grid-template-columns: 1fr 200px;
         grid-template-areas: "title img"
-                            "subtitle img"
+                             "subtitle img"
                              "text img";
         grid-column-gap: 2em;                     
     }
@@ -408,8 +409,6 @@ p, ul{
     font-weight: var(--fw-bold);
     font-family: var(--ff-primary);
 }
-
-
 .footer__link:hover,
 .social-list__link:hover{
     opacity: .7; /* subtle hover */
@@ -417,7 +416,6 @@ p, ul{
 .footer__link:hover{
     text-decoration: underline;
 }
-
 .social-list{
     list-style: none; /* no bullets */
     display: flex; /* puts them all next to eachother */
