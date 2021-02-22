@@ -21,15 +21,13 @@
 
     }
     100% {transform: skew(0deg);
-}
-
+    }
 }
 *,
 *::before,
 *::after{
     box-sizing: border-box;
 }
-/* Fonts */
 
 /* custom property set-up */
 :root{
@@ -39,24 +37,24 @@
     --fw-reg: 300;
     --fw-bold: 900;
 
-    --clr-light: #fff;
-    --clr-dark: #303030;
-    --clr-accent: rgb(82, 237, 56);
+    --clr-light: rgb(247, 248, 240);
+    --clr-dark: #313030;
+    --clr-accent: #38B6FF;
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
 
-    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25), 0.125em 0.125em 0.25em rgba(0,0,0,.15);
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25), 0.125em 0.125em 0.25em rgba(0,0,0,.15); /* box shadow to give depth */
 } 
 /* Media query to adapt font sizes */
 @media (min-width: 800px){
     :root{
         --fs-h1: 4.5rem;
         --fs-h2: 3.75rem;
-        --fs-h3: 1.5rem; 
-        --fs-body: 1.125rem;
+        --fs-h3: 2.5rem; 
+        --fs-body: 1.5rem;
 }
     }
 /* General styles */
@@ -79,9 +77,9 @@ img{
     max-width: 100%;
 }
 
-:focus{ 
+:focus{ /* for the entire page */
     outline: 3px solid var(--clr-accent);
-    outline-offset: 3px; /*highlights where the reader is focused on*/
+    outline-offset: 3px; /*highlights where the reader is focused on and when tabbed*/
 }
 /* other styles LOGOS*/
 #descodeuses_logo{
@@ -205,11 +203,12 @@ header{
 }
 
 .nav-toggle{
-    padding: .5em;
-    background: transparent;
-    border: 0;
+    padding: .5em; /* gives room to click on in the area */  
+    background: transparent; /* to make it disappear */
+    border: 0; /* so border is turned off */
     cursor: pointer; /* to have hand pointer when user goes on top of it */
-    right: 1em;
+    position: absolute; /* in order to give it a big z index */
+    right: 1em; /*allows to match original padding*/
     top: 1em;
     z-index: 1000; /* to keep the button available at all times! */
 }
@@ -230,10 +229,12 @@ header{
     opacity: 0; /* so it disapperas */
 }
 /*styles for hamburger */
+/* part 1 */
 .hamburger{
      display: block; /* because the span is inline and we don't want issues!! */
      position: relative;
 }
+/*part 2 pseudo elements */
 .hamburger,
 .hamburger::before,
 .hamburger::after{
@@ -241,16 +242,16 @@ header{
     width: 2em;
     height: 3px;
     border-radius: 2em;
-    transition: transform 250ms ease-in-out; 
+    transition: transform 250ms ease-in-out; /*simple animation*/
 }
 .hamburger::before,
 .hamburger::after{
     content: ''; /*must give a content(even if it's empty) to pseudo elements or they will not work! */
-    position: absolute; /*also required for psuedos */
+    position: absolute; 
     left: 0;
-    right: 0; /* to avoid having a huge bar going across the screen */
+    right: 0; /* to match the width of the first line and avoid having a huge bar going across the screen because of the relative position */
 }
-.hamburger::before { top: 6px} /* because the height is 3px */
+.hamburger::before { top: 6px} /* because the height is set at 3px */
 .hamburger::after { bottom: 6px;}
 
 /* Intro section */
@@ -331,6 +332,7 @@ p, ul{
         margin-left: 2em;
     }
 }
+/* About me section */
 .about-me{
     max-width: 1000px;
     margin: 0 auto;
@@ -389,7 +391,7 @@ p, ul{
     opacity 250ms linear;
 }
 .portfolio__img:hover,
-.portfolio__item:focus .portfolio__img /*shows pink outline when image is in focus */{
+.portfolio__item:focus .portfolio__img /*shows green outline when image is in focus */{
     transform: scale(1.2);
     opacity: .75;
 }
